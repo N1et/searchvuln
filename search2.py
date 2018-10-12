@@ -62,15 +62,14 @@ def search_google(num_page=1):
 
 def main():
     printf("[+] Buscando Links...")
-    #dumplinks = [search_google(), search_shodan()]
-    dumplinks = [["www.google.com"], ["www.google.com"]]
+    dumplinks = [search_google(), search_shodan()]
     total = len(dumplinks[0])+len(dumplinks[1])
     total = 2
     printf("Done!\n\n")
     #desse modo, a funcao simplesmente tera o objetivo de retornar os links
     #Sem se preocupar em fazer requisição e prints novamente.
     pbar = progressbar(length=total, show_eta=None, label="Scanning links")
-    vuln_links = ["www.google.com"]
+    vuln_links = []
     for busc in dumplinks:
         for link in busc:
             pbar.update(1)
